@@ -7,7 +7,7 @@
 
 -- 新テーブルの作成
 create table if not exists conf (
-  `ID` int not null comment '設定識別用ID'
+  `ID` int not null comment 'ユーザーID'
   , `fontSize` int default 10 not null comment 'フォントサイズ'
   , font varchar(255) default 'ゴシック' not null comment 'フォント'
   , `noticeFlg` tinyint(1) default 1 not null comment '通知フラグ'
