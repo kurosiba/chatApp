@@ -41,5 +41,19 @@
 |```git merge [ブランチ名]```|現在のブランチにマージしたいブランチを選択する|
 |```git checkout [オプション] [ブランチ名]```|移動したいブランチを選択する。オプションで-bを選択すると現在のブランチのコピーが新しいブランチにコピーされる|
 
-## ER図
+## ローカル環境でのDjangoの動かし方
+手順：
+1\.　```pip install django``` ```pip install djangorestframework``` ```pip install django-environ```でdjango周りのインストールをする
+<span style="color:red">(2~4は備忘録なので実施不要)</span>
+2\.　```python -m django --version```でバージョン情報が出てくるか確認する
+3\.　```django-admin startproject [プロジェクト名]```でプロジェクトを作成する
+今回は既にchatAppディレクトリがあるので、プロジェクト名を適当に設定してもらい生成されたディレクトリ直下のmanage.pyとappディレクトリをコピーしてchatApp直下に配置する。そのあと[プロジェクト名]ディレクトリは削除する
+4\.　```python manage.py startapp react_app``` ```python manage.py startapp api```でそれぞれ二つのディレクトリを作る
+5\.　```python manage.py runserver```と入力し```localhost:8000/index```にアクセスし、以下の画面が表示されればOK！
+![初回アクセスイメージ](https://github.com/kuriken121227/chatApp/assets/136247859/83363944-d3bd-42c1-8ae4-63006b45d594)
+
+## MySQLの接続の仕方
+手順:
+1\. ```pip install mysqlclient```でmysql周りのインストールを行う
+## ER図 (修正中)
 ![super_er](https://github.com/kuriken121227/chatApp/assets/136247859/1d5b2e32-9296-4631-81a3-9dfcaa05f0d2)
