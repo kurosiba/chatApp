@@ -159,9 +159,9 @@ class DjangoSession(models.Model):
 
 
 class Friend(models.Model):
-    userid = models.OneToOneField('User', models.DO_NOTHING, db_column='userId', primary_key=True, db_comment='ユーザーID')  # Field name made lowercase. The composite primary key (userId, friendId) found, that is not supported. The first column is selected.
-    friendid = models.ForeignKey('User', models.DO_NOTHING, db_column='friendId', related_name='friend_friendid_set', db_comment='フレンドID')  # Field name made lowercase.
-    satisfieddate = models.DateTimeField(db_column='satisfiedDate', db_comment='フレンド成立日時')  # Field name made lowercase.
+    user_id = models.OneToOneField('User', models.DO_NOTHING, db_column='userId', primary_key=True, db_comment='ユーザーID')  # Field name made lowercase. The composite primary key (userId, friendId) found, that is not supported. The first column is selected.
+    friend_id = models.ForeignKey('User', models.DO_NOTHING, db_column='friendId', related_name='friend_friendid_set', db_comment='フレンドID')  # Field name made lowercase.
+    satisfied_date = models.DateTimeField(db_column='satisfiedDate', db_comment='フレンド成立日時')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -171,9 +171,9 @@ class Friend(models.Model):
 
 
 class Friendrequest(models.Model):
-    applicantid = models.OneToOneField('User', models.DO_NOTHING, db_column='applicantId', primary_key=True, db_comment='申請者ID')  # Field name made lowercase. The composite primary key (applicantId, targetId) found, that is not supported. The first column is selected.
-    targetid = models.ForeignKey('User', models.DO_NOTHING, db_column='targetId', related_name='friendrequest_targetid_set', db_comment='申請先ID')  # Field name made lowercase.
-    applicantdate = models.DateTimeField(db_column='applicantDate', blank=True, null=True, db_comment='申請日時')  # Field name made lowercase.
+    applicant_id = models.OneToOneField('User', models.DO_NOTHING, db_column='applicantId', primary_key=True, db_comment='申請者ID')  # Field name made lowercase. The composite primary key (applicantId, targetId) found, that is not supported. The first column is selected.
+    target_id = models.ForeignKey('User', models.DO_NOTHING, db_column='targetId', related_name='friendrequest_targetid_set', db_comment='申請先ID')  # Field name made lowercase.
+    applicant_date = models.DateTimeField(db_column='applicantDate', blank=True, null=True, db_comment='申請日時')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -184,8 +184,8 @@ class Friendrequest(models.Model):
 
 class Roominfo(models.Model):
     id = models.IntegerField(primary_key=True, db_comment='ルーム情報ID')
-    userid = models.ForeignKey('User', models.DO_NOTHING, db_column='userid', db_comment='ユーザーID')
-    chatroomid = models.ForeignKey(Chatroom, models.DO_NOTHING, db_column='chatroomid', db_comment='チャットルームID')
+    user_id = models.ForeignKey('User', models.DO_NOTHING, db_column='userid', db_comment='ユーザーID')
+    chat_room_id = models.ForeignKey(Chatroom, models.DO_NOTHING, db_column='chatroomid', db_comment='チャットルームID')
 
     class Meta:
         managed = False
@@ -198,10 +198,10 @@ class User(models.Model):
     name = models.CharField(max_length=255, db_comment='ユーザー名')
     loginid = models.CharField(db_column='loginID', unique=True, max_length=255, db_comment='ログインID')  # Field name made lowercase.
     passwd = models.CharField(max_length=255, db_comment='ログインパスワード')
-    lastlogin = models.DateTimeField(db_column='lastLogin', db_comment='最終ログイン')  # Field name made lowercase.
-    createdate = models.DateTimeField(db_column='createDate', db_comment='アカウント作成日時')  # Field name made lowercase.
-    iconimage = models.CharField(db_column='iconImage', max_length=255, db_comment='アイコン画像パス')  # Field name made lowercase.
-    confid = models.IntegerField(db_column='ConfID', db_comment='設定情報ID')  # Field name made lowercase.
+    last_login = models.DateTimeField(db_column='lastLogin', db_comment='最終ログイン')  # Field name made lowercase.
+    create_date = models.DateTimeField(db_column='createDate', db_comment='アカウント作成日時')  # Field name made lowercase.
+    icon_image = models.CharField(db_column='iconImage', max_length=255, db_comment='アイコン画像パス')  # Field name made lowercase.
+    conf_id = models.IntegerField(db_column='ConfID', db_comment='設定情報ID')  # Field name made lowercase.
 
     class Meta:
         managed = False
