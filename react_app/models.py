@@ -166,7 +166,7 @@ class Friend(models.Model):
     class Meta:
         managed = False
         db_table = 'friend'
-        unique_together = (('userid', 'friendid'),)
+        unique_together = (('user_id', 'friend_id'),)
         db_table_comment = 'フレンド情報'
 
 
@@ -178,7 +178,7 @@ class Friendrequest(models.Model):
     class Meta:
         managed = False
         db_table = 'friendrequest'
-        unique_together = (('applicantid', 'targetid'),)
+        unique_together = (('applicant_id', 'target_id'),)
         db_table_comment = 'フレンド申請'
 
 
