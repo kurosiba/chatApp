@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'react_app',
     'api.apps.ApiConfig',
-    'rest_framework',
+    'accounts.apps.AccountsConfig',
+    'room.apps.RoomConfig',
+    'chat.apps.ChatConfig',
+    'friend.apps.FriendConfig',
 ]
 
 MIDDLEWARE = [
