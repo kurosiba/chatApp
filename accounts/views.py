@@ -5,6 +5,7 @@ import json
 
 # Create your views here.
 def user_list_view(request):
+    # Userテーブルから全レコードの取得
     user_list = User.objects.all()
 
     if user_list.count() == 0:
@@ -14,4 +15,8 @@ def user_list_view(request):
         users_json = json.dumps(users, indent=3)
         print(users_json)
         return HttpResponse(users_json)
+        
+        
+def rgst_account(request):
+    return render(request, 'accounts/rgst.html')
     
