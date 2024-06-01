@@ -16,10 +16,7 @@ def regist_user(request):
         user = User(name = name, loginid = id, passwd = password, confid = 0)
         user.save()
     except IntegrityError as e:
-        duplicate_error = 'このIDは既に利用されています。'
-        return render(request, 'accounts/rgst.html', {"duplicate_error": duplicate_error}, status=400)
-    except ValidationError as e:
-        same_error = e.message
-        return render(request, 'accounts/rgst.html', {"same_error": same_error}, status=400)
+        # duplicate_error = 'このIDは既に利用されています。'
+        return HttpResponse(status = 400)
     else:
-        return HttpResponseRedirect('/accounts/rgst_account')
+        return HttpResponse(status = 200)

@@ -15,8 +15,3 @@ def user_list_view(request):
         users_json = json.dumps(users, indent=3)
         print(users_json)
         return HttpResponse(users_json)
-        
-        
-def rgst_account(request):
-    return render(request, 'accounts/rgst.html')
-    
