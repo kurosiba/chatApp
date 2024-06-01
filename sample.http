@@ -1,0 +1,2 @@
+### Userテーブルからレコード取得リクエスト
+GET http://localhost:8000/accounts/user_list
