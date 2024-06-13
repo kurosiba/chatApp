@@ -1,0 +1,76 @@
+
+.searchForm {
+    text-align: center;
+  }
+  
+  .searchInputGroup {
+    margin-bottom: 1rem;
+  }
+  
+  .searchInput {
+    width: 300px; /* サイズを統一 */
+    display: block;
+    margin: 1rem auto; /* 中央揃え */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .searchButton {
+    width: 320px; /* ボタンの幅をinputとほぼ同じに */
+    display: block;
+    margin: 80px auto 1rem; /* 上に大きなマージンを設定 */
+    padding: 10px;
+    background-color: #333; /* ダークグレー */
+    color: #fff; /* テキストは白色 */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .searchButton:hover {
+    background-color: #555; /* ホバーで少し明るい色に */
+  }
+  
+  .radioGroup {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .radioGroup label {
+    margin-right: 24px;
+  }
+  
+  /* アクティブな選択肢以外の画像を薄く表示するスタイル */
+  .navLink img {
+    opacity: 0.5;
+  }
+  
+  .navLink.active img {
+    opacity: 1;
+  }
+  
+  .logout-link img {
+    opacity: 1; /* ログアウトリンクは常にフルオパシティ */
+  }
+
+  .searchInputGroup {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* テキストボックスのスタイル */
+  .searchInput {
+    flex-grow: 1;
+    margin-right: 8px;
+
+  }
+  
+  /* 検索ボタンのスタイル */
+  .searchButton {
+    padding: 10px;
+
+  }
+  

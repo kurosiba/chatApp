@@ -1,0 +1,50 @@
+/* Navbar.css */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black; /* 通常時のテキスト色 */
+  padding: 10px;
+  display: flex; /* 画像を中央揃えにするために追加 */
+  align-items: center; /* 画像を中央揃えにするために追加 */
+}
+
+.navbar a:not(.active) img {
+  opacity: 0.3; /* 非アクティブ時の画像を薄く表示 */
+}
+
+.navbar a.active img {
+  opacity: 1; /* アクティブ時の画像を通常の表示に */
+}
+.navbar a.active img,
+.navbar a.logout-link img { /* ログアウトリンクに対して常にフルオパシティ */
+  opacity: 1; /* アクティブ時、またはログアウトリンクの画像を通常の表示に */
+}
+.navbar a img {
+  display: none; /* すべての画像をデフォルトで非表示にする */
+}
+
+.navbar a img.inactive {
+  display: block; /* 非アクティブな画像は常に表示 */
+}
+
+.navbar a.active img.inactive {
+  display: none; /* リンクがアクティブな場合は非アクティブ画像を非表示にする */
+}
+
+.navbar a.active img.active {
+  display: block; /* リンクがアクティブな場合はアクティブ画像を表示 */
+}
+
+.navbar a.logout-link img {
+  display: block !important;
+}
