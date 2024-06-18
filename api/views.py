@@ -1,10 +1,9 @@
 from django.forms import ValidationError
 from django.shortcuts import render
 from .models import User
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.utils import timezone
 from django.db import IntegrityError
-import json
 
 # Create your views here.
 # アカウント登録の処理
@@ -20,3 +19,17 @@ def regist_user(request):
         return HttpResponse(status = 400)
     else:
         return HttpResponse(status = 200)
+
+# ログイン処理
+def check_login(request):
+    try:
+        id = request.POST['id']
+        password = request.POST['password']
+        # idとパスワードでDB検索
+        login_user = User.objects.get(loginid = id, passwd = password)
+    except Exception as e:
+        return HttpResponse(status = 400)
+    else:
+        #Jsonの作成
+        user_id = { id : login_user.id }
+        return JsonResponse(user_id, status = 200)
