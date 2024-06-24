@@ -19,16 +19,3 @@ class User(models.Model):
         managed = False
         db_table = 'user'
         db_table_comment = 'ユーザマスタ'
-
-    def check_valid(self):
-        #IDとパスワードが同じでないことの確認
-        if self.loginid == self.passwd:
-            raise ValidationError('IDとパスワードは同じものを設定することはできません')
-            
-    def save(self):
-        try:
-            self.check_valid()
-        except ValidationError as e:
-            raise e
-        else:
-            super().save()
